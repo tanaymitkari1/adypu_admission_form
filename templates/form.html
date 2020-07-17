@@ -1,0 +1,350 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-align-center">
+    <img data-src="{% static 'images/adypulogo.jpg' %}" width="700px" height="500px" alt="" uk-img class="uk-align-center">
+    <h1 class="uk-text-center uk-text-large uk-card-title main-title">Re-admission Form</h1>
+    
+    <form class="uk-form-horizontal uk-margin-large" method="POST" enctype="multipart/form-data">
+       {%csrf_token%}
+       <hr class="uk-divider-icon">
+        <h4 class="uk-card-title mini-title">Personal Information</h4>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text">First Name</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" required placeholder="First Name" name="first_name">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text">Middle Name</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="Middle Name" name="middle_name">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text">Last Name</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="Last Name" name="last_name">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text">Date of Birth</label>
+            <div class="uk-form-controls">
+                <input type="date" class="uk-input" required data-uk-datepicker="{format:'DD.MM.YYYY'}" placeholder="Date of Birth" name="dob">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text">Contact Number</label>
+            <div class="uk-form-controls">
+                <input type="tel" class="uk-input" required id="form-horizontal-text" type="text" placeholder="Contact Number" name="contact">
+            </div>
+        </div>
+    
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-select">Blood Group</label>
+            <div class="uk-form-controls">
+                <select class="uk-select" id="form-horizontal-select" name="blood_grp">
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O+" selected>O+</option>
+                    <option value="O-">O-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                </select>
+            </div>
+        </div>
+    
+        <div class="uk-margin">
+            <div class="uk-form-label mini-font">Gender</div>
+            <div class="uk-form-controls uk-form-controls-text">
+                <label><input class="uk-radio" type="radio" name="radio1" value="Male"> Male</label> 
+                <label><input class="uk-radio" type="radio" name="radio1" value="Female"> Female</label> 
+                <label><input class="uk-radio" type="radio" name="radio1" value="Other"> Other</label>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Disability</label>
+            <div class="uk-form-controls">
+                <input class="uk-checkbox" type="checkbox" name="checkbox" value="Blind"> Blind</label><br>
+                <input class="uk-checkbox" type="checkbox" name="checkbox" value="Hearing Disabled"> Hearing disabled</label><br>
+                <input class="uk-checkbox" type="checkbox" name="checkbox" value="Orthopaedically Impaired"> Orthopaedically Impaired</label><br>
+                <input class="uk-checkbox" type="checkbox" name="checkbox" value="Mentally Retired"> Mentally Retired</label>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Muslim Monority</label>
+            <div class="uk-form-controls">
+                <input class="uk-checkbox" type="checkbox" name="muslim" value="True"> True</label>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-select mini-font mini-font">Other Minority</label>
+            <div class="uk-form-controls">
+                <select class="uk-select" id="form-horizontal-select" name="other_minority">
+                    <option value="None" selected>None</option>
+                    <option value="Christians">Christians</option>
+                    <option value="Sikhs">Sikhs</option>
+                    <option value="Bhuddhists">Bhuddhists</option>
+                    <option value="Zoroastrians (Parsis)">Zoroastrians (Parsis)</option>
+                    <option value="Jains">Jains</option>
+                </select>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-select mini-font mini-font">Category</label>
+            <div class="uk-form-controls">
+                <select class="uk-select" id="form-horizontal-select" name="category">
+                    <option value="General" selected>General</option>
+                    <option value="SC">SC</option>
+                    <option value="ST">ST</option>
+                    <option value="OBC">OBC</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <div class="uk-form-label mini-font">Maritial Status</div>
+            <div class="uk-form-controls uk-form-controls-text">
+                <label><input class="uk-radio" type="radio" name="radio2" value="Married"> Married</label> 
+                <label><input class="uk-radio" type="radio" name="radio2" value="Un-married"> Un-married</label>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Nationality</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="Nationality" name="nationality">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text">Permanent adress</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="Permanent adress" name="adress">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">City</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="City" name="city">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">State</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="State" name="state">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Aadhar Number</label>
+            <div class="uk-form-controls">
+                <input type="tel" class="uk-input" required required id="form-horizontal-text" type="text" placeholder="Aadhar Number" name="aadhar">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text">URN</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="URN" name="urn">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Year of study</label>
+            <div class="uk-form-controls">
+                <select class="uk-select" id="form-horizontal-select" name="study">
+                    <option value="2016" selected>2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                </select>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Semister</label>
+            <div class="uk-form-controls">
+                <select class="uk-select" id="form-horizontal-select" name="sem">
+                    <option value="B.Tech">I</option>
+                    <option value="M.Tech">II</option>
+                    <option value="PHD">III</option>
+                    <option value="PGP">IV</option>
+                    <option value="PGP">V</option>
+                    <option value="PGP">VI</option>
+                </select>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Degree</label>
+            <div class="uk-form-controls">
+                <select class="uk-select" id="form-horizontal-select" name="degree">
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="M.Tech">M.Tech</option>
+                    <option value="PHD">PHD</option>
+                    <option value="PGP">PGP</option>
+                </select>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Program</label>
+            <div class="uk-form-controls">
+                <select class="uk-select" id="form-horizontal-select" name="program">
+                    <option value="Mechatronics">Mechatronics</option>
+                    <option value="Computer">Computer</option>
+                    <option value="Bio-Med">Bio-Med</option>
+                    <option value="Bio-tech">Bio-tech</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="Automobile">Automobile</option>
+                    <option value="Bio-enggineering">Bio-enggineering</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Mother's Name</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="Mother's Name" name="mother_name">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Father's Name</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="Father's Name" name="father_name">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text">Parent's email</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" required type="email" placeholder="Parent's email" name="parent_email">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Parent's Contact</label>
+            <div class="uk-form-controls">
+                <input type="tel" class="uk-input" required id="form-horizontal-text" type="text" placeholder="Parent's Contact Number" name="parent_contact">
+            </div>
+        </div>
+        
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text">Local Guardian's Name</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="Local Guardian's Name" name="guardian_name">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text">Emergency Number</label>
+            <div class="uk-form-controls">
+                <input type="tel" class="uk-input"  required id="form-horizontal-text" type="text" placeholder="Emergency Contact Number" name="emergency">
+            </div>
+        </div>
+        <div class="uk-margin"> 
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Education loan availed</label>
+            <div class="uk-form-controls">
+                <input class="uk-checkbox" type="checkbox" name="checkbox_edu" value="True"> True</label>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Scholarship availed</label>
+            <div class="uk-form-controls">
+                <input class="uk-checkbox" type="checkbox" name="checkbox_scholar" value="True"> True</label>
+            </div>
+        </div>
+        <hr class="uk-divider-icon">
+        <h4 class="uk-card-title mini-title">Fees pending for last year, if any</h4>
+
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Amount Transferred</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Amount Transferred" name="amount_transferred">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Mode of Payment</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="ex: Net Banking, Cheque, etc." name="payment_mode">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Transaction ID</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Transaction ID" name="transaction_id">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Date of Payment</label>
+            <div class="uk-form-controls">
+                <input type="date" class="uk-input" data-uk-datepicker="{format:'YYYY'}" placeholder="Date of Payment" name="dop">
+            </div>
+        </div>
+        <hr class="uk-divider-icon">
+        <h4 class="uk-card-title mini-title">Fees to be paid for AY 2020-2021</h4>
+
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Amount Transferred</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Amount Transferred" name="amount_ay">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Mode of Payment</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="ex: Net Banking, Cheque, etc." name="payment_ay">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Transaction ID</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Transaction ID" name="transaction_ay">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Date of Payment</label>
+            <div class="uk-form-controls">
+                <input type="date" class="uk-input" data-uk-datepicker="{format:'YYYY'}" placeholder="Date of Payment" name="dop_ay">
+            </div>
+        </div>
+
+        <hr class="uk-divider-icon">
+        <h4 class="uk-card-title mini-title ">Document Upload</h4>
+
+        <div class="uk-margin">
+            <div uk-form-custom>
+                <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Anti-Ragging Form</label>
+                <div uk-form-custom="target: true">
+                    <input type="file" name="antiragging">
+                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <div uk-form-custom>
+                <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Readmission fees undertaking</label>
+                <div uk-form-custom="target: true">
+                    <input type="file" name="accept_form">
+                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <div uk-form-custom>
+                <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Readmission acceptance form</label>
+                <div uk-form-custom="target: true">
+                    <input type="file" name="ac_form">
+                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <div uk-form-custom>
+                <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Student Photograph</label>
+                <div uk-form-custom="target: true">
+                    <input type="file" name="photo">
+                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
+                </div>
+            </div>
+        </div>
+        <input type="submit" class="uk-button uk-button-primary" value="Submit form"> <input class="uk-button" type="reset" value="Reset">
+    </form>
+
+
+</div>
+{% endblock content %}
