@@ -2,14 +2,17 @@
 {% load static %}
 {% block content %}
 
-<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-align-center">
-    <img data-src="{% static 'images/adypulogo.jpg' %}" width="700px" height="500px" alt="" uk-img class="uk-align-center">
-    <h1 class="uk-text-center uk-text-large uk-card-title main-title">Re-admission Form</h1>
+<div class="uk-card uk-card-default uk-card-body uk-width-3-4 uk-align-center">
+    <div class="uk-card uk-card-body uk-align-center" >
+        <img data-src="{% static 'images/online.png' %}" width="700px" height="500px" alt="" uk-img class="uk-align-center">
+    </div>
+    <h1 class="uk-text-center uk-text-large uk-card-title main-title" style="color:#6f1952"><b>Application Form</b></h1>
     
     <form class="uk-form-horizontal uk-margin-large" method="POST" enctype="multipart/form-data">
        {%csrf_token%}
        <hr class="uk-divider-icon">
-        <h4 class="uk-card-title mini-title">Personal Information</h4>
+      
+        <h4 class="uk-card-title mini-title" style="color:#6f1952"><b>Personal Information</b></h4>
         <div class="uk-margin">
             <label class="uk-form-label mini-font" for="form-horizontal-text">First Name</label>
             <div class="uk-form-controls">
@@ -17,80 +20,128 @@
             </div>
         </div>
         <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text">Middle Name</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="Middle Name" name="middle_name">
-            </div>
-        </div>
-        <div class="uk-margin">
             <label class="uk-form-label mini-font" for="form-horizontal-text">Last Name</label>
             <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="Last Name" name="last_name">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Last Name" name="last_name">
             </div>
         </div>
         <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text">Date of Birth</label>
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Father's Name</label>
             <div class="uk-form-controls">
-                <input type="date" class="uk-input" required data-uk-datepicker="{format:'DD.MM.YYYY'}" placeholder="Date of Birth" name="dob">
+                <input class="uk-input" id="form-horizontal-text"  type="text" placeholder="Father's Name" name="father_name">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Mother's Name</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text"  type="text" placeholder="Mother's Name" name="mother_name">
             </div>
         </div>
         <div class="uk-margin">
             <label class="uk-form-label mini-font" for="form-horizontal-text">Contact Number</label>
             <div class="uk-form-controls">
-                <input type="tel" class="uk-input" required id="form-horizontal-text" type="text" placeholder="Contact Number" name="contact">
+                <input type="tel" class="uk-input" id="form-horizontal-text" type="number" placeholder="Contact Number" name="contact">
             </div>
         </div>
-    
         <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-select">Blood Group</label>
+            <label class="uk-form-label mini-font" for="form-horizontal-text">Email</label>
             <div class="uk-form-controls">
-                <select class="uk-select" id="form-horizontal-select" name="blood_grp">
-                    <option value="A+">A+</option>
-                    <option value="A-">A-</option>
-                    <option value="B+">B+</option>
-                    <option value="B-">B-</option>
-                    <option value="O+" selected>O+</option>
-                    <option value="O-">O-</option>
-                    <option value="AB+">AB+</option>
-                    <option value="AB-">AB-</option>
-                </select>
+                <input type="tel" class="uk-input" id="form-horizontal-text" type="email" placeholder="" name="email">
             </div>
         </div>
-    
+        <hr class="uk-divider-icon">
+        <h4 class="uk-card-title mini-title" style="color:#6f1952"><b>Contact Number</b></h4>
         <div class="uk-margin">
-            <div class="uk-form-label mini-font">Gender</div>
-            <div class="uk-form-controls uk-form-controls-text">
-                <label><input class="uk-radio" type="radio" name="radio1" value="Male"> Male</label> 
-                <label><input class="uk-radio" type="radio" name="radio1" value="Female"> Female</label> 
-                <label><input class="uk-radio" type="radio" name="radio1" value="Other"> Other</label>
-            </div>
-        </div>
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Disability</label>
+            <label class="uk-form-label mini-font" for="form-horizontal-text">Father</label>
             <div class="uk-form-controls">
-                <input class="uk-checkbox" type="checkbox" name="checkbox" value="Blind"> Blind</label><br>
-                <input class="uk-checkbox" type="checkbox" name="checkbox" value="Hearing Disabled"> Hearing disabled</label><br>
-                <input class="uk-checkbox" type="checkbox" name="checkbox" value="Orthopaedically Impaired"> Orthopaedically Impaired</label><br>
-                <input class="uk-checkbox" type="checkbox" name="checkbox" value="Mentally Retired"> Mentally Retired</label>
+                <input class="uk-input" id="form-horizontal-text" type="text" required placeholder="Father's" name="father_contact">
             </div>
         </div>
         <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Muslim Monority</label>
+            <label class="uk-form-label mini-font" for="form-horizontal-text">Mother</label>
             <div class="uk-form-controls">
-                <input class="uk-checkbox" type="checkbox" name="muslim" value="True"> True</label>
+                <input class="uk-input" id="form-horizontal-text" type="text" required placeholder="Mother's" name="mother_contact">
+            </div>
+        </div>
+        <hr class="uk-divider-icon">
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text">Permanent Address</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" required placeholder="Permanent Address"name="address">
             </div>
         </div>
         <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-select mini-font mini-font">Other Minority</label>
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">City</label>
             <div class="uk-form-controls">
-                <select class="uk-select" id="form-horizontal-select" name="other_minority">
-                    <option value="None" selected>None</option>
-                    <option value="Christians">Christians</option>
-                    <option value="Sikhs">Sikhs</option>
-                    <option value="Bhuddhists">Bhuddhists</option>
-                    <option value="Zoroastrians (Parsis)">Zoroastrians (Parsis)</option>
-                    <option value="Jains">Jains</option>
-                </select>
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="City" name="city">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Pin</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Pin code" name="pin">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">State</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="State" name="state">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Country</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Country" name="country">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Present Address</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Present Address" name="padress">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Present City</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Present City" name="pcity">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Pin code</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Pin code" name="ppin">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Present State</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Present State" name="pstate">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Present Country</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Present Country" name="pcountry">
+            </div>
+        </div>
+        <h4 class="uk-card-title mini-title" style="color:#6f1952"><b>Personal Perticulars</b></h4>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Date of Birth</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Date of Birth" name="dob">
+            </div>
+        </div>
+        
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Place of Birth</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Place of Birth" name="pob">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Gender</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Male, Female, Other" name="radio1">
             </div>
         </div>
         <div class="uk-margin">
@@ -106,77 +157,41 @@
             </div>
         </div>
         <div class="uk-margin">
-            <div class="uk-form-label mini-font">Maritial Status</div>
-            <div class="uk-form-controls uk-form-controls-text">
-                <label><input class="uk-radio" type="radio" name="radio2" value="Married"> Married</label> 
-                <label><input class="uk-radio" type="radio" name="radio2" value="Un-married"> Un-married</label>
-            </div>
-        </div>
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Nationality</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="Nationality" name="nationality">
-            </div>
-        </div>
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text">Permanent adress</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="Permanent adress" name="adress">
-            </div>
-        </div>
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">City</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="City" name="city">
-            </div>
-        </div>
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">State</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="State" name="state">
-            </div>
-        </div>
-        <div class="uk-margin">
             <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Aadhar Number</label>
             <div class="uk-form-controls">
-                <input type="tel" class="uk-input" required required id="form-horizontal-text" type="text" placeholder="Aadhar Number" name="aadhar">
+                <input type="tel" class="uk-input"   id="form-horizontal-text" type="text" placeholder="Aadhar Number" name="aadhar">
             </div>
-        </div>
+        </div>  
         <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text">URN</label>
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Blood Group</label>
             <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="URN" name="urn">
-            </div>
-        </div>
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Year of study</label>
-            <div class="uk-form-controls">
-                <select class="uk-select" id="form-horizontal-select" name="study">
-                    <option value="2016" selected>2016</option>
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                    <option value="2020">2020</option>
+                <select class="uk-select" id="form-horizontal-select" name="blood_grp">
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O+">O-</option>
+                    <option value="O-">O-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
                 </select>
             </div>
         </div>
         <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Semister</label>
+            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Maratial Status</label>
             <div class="uk-form-controls">
-                <select class="uk-select" id="form-horizontal-select" name="sem">
-                    <option value="B.Tech">I</option>
-                    <option value="M.Tech">II</option>
-                    <option value="PHD">III</option>
-                    <option value="PGP">IV</option>
-                    <option value="PGP">V</option>
-                    <option value="PGP">VI</option>
-                </select>
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Married, Un-married" name="radio2">
             </div>
         </div>
+        <h4 class="uk-card-title mini-title" style="color:#6f1952"><b>Course Applied For</b></h4>
         <div class="uk-margin">
             <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Degree</label>
             <div class="uk-form-controls">
                 <select class="uk-select" id="form-horizontal-select" name="degree">
+                    <option value="BSC">BSC</option>
+                    <option value="BCA">BCA</option>
+                    <option value="MSC">MSC</option>
+                    <option value="MCA">MCA</option>
                     <option value="B.Tech">B.Tech</option>
                     <option value="M.Tech">M.Tech</option>
                     <option value="PHD">PHD</option>
@@ -188,160 +203,379 @@
             <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Program</label>
             <div class="uk-form-controls">
                 <select class="uk-select" id="form-horizontal-select" name="program">
-                    <option value="Mechatronics">Mechatronics</option>
-                    <option value="Computer">Computer</option>
-                    <option value="Bio-Med">Bio-Med</option>
-                    <option value="Bio-tech">Bio-tech</option>
-                    <option value="Mechanical">Mechanical</option>
-                    <option value="Automobile">Automobile</option>
-                    <option value="Bio-enggineering">Bio-enggineering</option>
+                    <option value="Mechatronics Engineering">Mechatronics Engineering</option>
+                    <option value="Computer Engineering">Computer Engineering</option>
+                    <option value="Biomedical Engineering">Biomedical Engineering</option>
+                    <option value="Biotechnology Engineering">Biotechnology Engineering</option>
+                    <option value="Clinical Reasearch">Clinical Reasearch</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Automotive Product Engineering">Automotive Product Engineering</option>
+                    <option value="Internet of Things">Internet of Things</option>
+                    <option value="Data Science">Data Science</option>
+                    <option value="Animation">Animation</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="Cloud Technology">Cloud Technology</option>
                 </select>
             </div>
         </div>
+        <h4 class="uk-card-title mini-title" style="color:#6f1952"><b>Academic Qualifications</b></h4>
+        <div class="uk-overflow-auto">
+        <table class="uk-table">
+            <thead>
+                <tr>
+                    <th style="color:#6f1952"><b>Examination</b></th>
+                    <th style="color:#6f1952"><b>Year</b></th>
+                    <th style="color:#6f1952"><b>Name of School</b></th>
+                    <th style="color:#6f1952"><b>Board / University</b></th>
+                    <th style="color:#6f1952"><b>Maximum Marks</b></th>
+                    <th style="color:#6f1952"><b>Marks Obtained</b></th>
+                    <th style="color:#6f1952"><b>Percentage</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Secondary (10th)
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. (2014 - 2015)" name="year1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Name" name="nos1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Name" name="board1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="mm1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="mo1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="p1">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Sr. Secondary (12th)
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. (2014 - 2015)" name="year2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Name" name="nos2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Name" name="board2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="mm2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="mo2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="p2">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h4 class="uk-card-title mini-title" style="color:#6f1952"><b>Graduation</b></h4>
+    <div class="uk-margin">
+        <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Name of Degree</label>
+        <div class="uk-form-controls">
+            <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. B.Tech Mechatronics" name="name_of_degree">
+        </div>
+    </div>
+        <div class="uk-overflow-auto">
+        <table class="uk-table">
+            <thead>
+                <tr>
+                    <th style="color:#6f1952"><b>Examination</b></th>
+                    <th style="color:#6f1952"><b>Year</b></th>
+                    <th style="color:#6f1952"><b>Name of College</b></th>
+                    <th style="color:#6f1952"><b>University</b></th>
+                    <th style="color:#6f1952"><b>Maximum Marks</b></th>
+                    <th style="color:#6f1952"><b>Marks Obtained</b></th>
+                    <th style="color:#6f1952"><b>CGPA</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Year 1
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. 2018" name="gy1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Name" name="collegename1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="University Name" name="uni1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="gmm1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="gmo1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="cgpa1">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Year 2
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. 2019" name="gy2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Name" name="collegename2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="University Name" name="uni2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="gmm2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="gmo2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="cgpa2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Year 3
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. 2020" name="gy3">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Name" name="collegename3">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="University Name" name="uni3">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="gmm3">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="gmo3">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="cgpa3">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Year 4
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. 2021" name="gy4">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Name" name="collegename4">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="University Name" name="uni4">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="gmm4">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="gmo4">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="cgpa4">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        <h4 class="uk-card-title mini-title" style="color:#6f1952"><b>Work Experience</b> (if any)</h4>
+        <div class="uk-overflow-auto">
+        <table class="uk-table">
+            <thead>
+                <tr>
+                    <th style="color:#6f1952"><b>Organisation Name</b></th>
+                    <th style="color:#6f1952"><b>Designation</b></th>
+                    <th style="color:#6f1952"><b>Period</b></th>
+                    <th style="color:#6f1952"><b>Nature of work</b></th>
+                    <th style="color:#6f1952"><b>Last salary Draw (₹/mo)</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Organisation Name" name="org_name1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Designation" name="des1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. (2020 -2021)" name="period1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="nature_work1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="salary1">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Organisation Name" name="org_name2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Designation" name="des2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. (2020 -2021)" name="period2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="nature_work2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="salary2">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="uk-margin">
+        <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font" style="color:#6f1952">Total Experience</label>
+        <div class="uk-form-controls">
+            <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. 5 years" name="total_exp">
+        </div>
+    </div>
+    
         
+        <h4 class="uk-card-title mini-title" style="color:#6f1952"><b>Awards & Honours</b></h4>
+        <div class="uk-overflow-auto">
+        <table class="uk-table">
+            <thead>
+                <tr>
+                    <th style="color:#6f1952"><b>Year</b></th>
+                    <th style="color:#6f1952"><b>Name of Award</b></th>
+                    <th style="color:#6f1952"><b>Institution</b></th>
+                    <th style="color:#6f1952"><b>Level</b></th>
+                    <th style="color:#6f1952"><b>Remarks</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Year" name="year1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Award Name" name="award_name1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Name" name="institute1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. International, National" name="level1">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="remark1">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Year" name="year2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Award Name" name="award_name2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Name" name="institute2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. International, National" name="level2">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="remark2">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h4 class="uk-card-title mini-title" style="color:#6f1952"><b>Occupation of Relation</b></h4>
+        <div class="uk-overflow-auto">
+        <table class="uk-table">
+            <thead>
+                <tr>
+                    <th style="color:#6f1952"><b>Relation</b></th>
+                    <th style="color:#6f1952"><b>Education</b></th>
+                    <th style="color:#6f1952"><b>Occupation</b></th>
+                    <th style="color:#6f1952"><b>Annual Income</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Father
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Education" name="father_education">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="occupation" name="father_occupation">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="per annum" name="father_income">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Mother
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Education" name="mother_education">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="occupation" name="mother_occupation">
+                    </td>
+                    <td>
+                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="per annum" name="mother_income">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h5 class="uk-card-title mini-title" style="color:#6f1952"><b>Why would you choose to study at ADYPU? What are your future plans?</b></h5>
         <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Mother's Name</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="Mother's Name" name="mother_name">
-            </div>
+            
+            
+                <input class="uk-input" id="form-horizontal-text" type="text" required placeholder="Max. 50 words" name="why_study">
+         
         </div>
+        <h5 class="uk-card-title mini-title" style="color:#6f1952"><b>How do you come to know about us?</b></h5>
         <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Father's Name</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="Father's Name" name="father_name">
-            </div>
+            
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="News Paper, Friends, Website, Other" name="how">
+           
         </div>
+        <h5 class="uk-card-title mini-title" style="color:#6f1952"><b>Upload your photo</b></h5>
         <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text">Parent's email</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" required type="email" placeholder="Parent's email" name="parent_email">
-            </div>
-        </div>
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Parent's Contact</label>
-            <div class="uk-form-controls">
-                <input type="tel" class="uk-input" required id="form-horizontal-text" type="text" placeholder="Parent's Contact Number" name="parent_contact">
-            </div>
-        </div>
-        
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text">Local Guardian's Name</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" required type="text" placeholder="Local Guardian's Name" name="guardian_name">
-            </div>
-        </div>
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text">Emergency Number</label>
-            <div class="uk-form-controls">
-                <input type="tel" class="uk-input"  required id="form-horizontal-text" type="text" placeholder="Emergency Contact Number" name="emergency">
-            </div>
-        </div>
-        <div class="uk-margin"> 
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Education loan availed</label>
-            <div class="uk-form-controls">
-                <input class="uk-checkbox" type="checkbox" name="checkbox_edu" value="True"> True</label>
-            </div>
-        </div>
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Scholarship availed</label>
-            <div class="uk-form-controls">
-                <input class="uk-checkbox" type="checkbox" name="checkbox_scholar" value="True"> True</label>
+            <div uk-form-custom>
+                <input type="file">
+                <button class="uk-button uk-button-default" type="button" tabindex="-1">Select</button>
             </div>
         </div>
         <hr class="uk-divider-icon">
-        <h4 class="uk-card-title mini-title">Fees pending for last year, if any</h4>
-
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Amount Transferred</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Amount Transferred" name="amount_transferred">
-            </div>
-        </div>
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Mode of Payment</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="ex: Net Banking, Cheque, etc." name="payment_mode">
-            </div>
-        </div>
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Transaction ID</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Transaction ID" name="transaction_id">
-            </div>
-        </div>
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Date of Payment</label>
-            <div class="uk-form-controls">
-                <input type="date" class="uk-input" data-uk-datepicker="{format:'YYYY'}" placeholder="Date of Payment" name="dop">
-            </div>
-        </div>
-        <hr class="uk-divider-icon">
-        <h4 class="uk-card-title mini-title">Fees to be paid for AY 2020-2021</h4>
-
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Amount Transferred</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Amount Transferred" name="amount_ay">
-            </div>
-        </div>
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Mode of Payment</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="ex: Net Banking, Cheque, etc." name="payment_ay">
-            </div>
-        </div>
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Transaction ID</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Transaction ID" name="transaction_ay">
-            </div>
-        </div>
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Date of Payment</label>
-            <div class="uk-form-controls">
-                <input type="date" class="uk-input" data-uk-datepicker="{format:'YYYY'}" placeholder="Date of Payment" name="dop_ay">
-            </div>
-        </div>
-
-        <hr class="uk-divider-icon">
-        <h4 class="uk-card-title mini-title ">Document Upload</h4>
-
-        <div class="uk-margin">
-            <div uk-form-custom>
-                <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Anti-Ragging Form</label>
-                <div uk-form-custom="target: true">
-                    <input type="file" name="antiragging">
-                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
-                </div>
-            </div>
-        </div>
-        <div class="uk-margin">
-            <div uk-form-custom>
-                <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Readmission fees undertaking</label>
-                <div uk-form-custom="target: true">
-                    <input type="file" name="accept_form">
-                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
-                </div>
-            </div>
-        </div>
-        <div class="uk-margin">
-            <div uk-form-custom>
-                <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Readmission acceptance form</label>
-                <div uk-form-custom="target: true">
-                    <input type="file" name="ac_form">
-                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
-                </div>
-            </div>
-        </div>
-        <div class="uk-margin">
-            <div uk-form-custom>
-                <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Student Photograph</label>
-                <div uk-form-custom="target: true">
-                    <input type="file" name="photo">
-                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
-                </div>
-            </div>
-        </div>
+        <h4 class="uk-card-title mini-title">DECLARATION</h4>
+        <p>I hereby declare that the information furnished above is true, complete
+            and correct to the best of my knowledge and belief. I understand that in the event of my information
+            being found false or incorrect at any stage, my candidature / appointment shall be liable to
+            cancellation / termination without notice or any compensation in lieu thereof.</p>
+            <input class="uk-checkbox" type="checkbox" required name="" value="Yes"> I accept </label><br><br>
         <input type="submit" class="uk-button uk-button-primary" value="Submit form"> <input class="uk-button" type="reset" value="Reset">
     </form>
 
