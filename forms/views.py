@@ -38,7 +38,6 @@ def input_form(request):
         aadhar = gd["aadhar"]
         status = gd["radio2"]
         blood_group = gd["blood_grp"]
-        course = gd["degree"]
         program = gd["program"]
         year1 = gd["year1"]
         nos1 = gd["nos1"]
@@ -59,24 +58,6 @@ def input_form(request):
         gmm1 = gd["gmm1"]
         gmo1 = gd["gmo1"]
         cgpa1 = gd["cgpa1"]
-        gy2 = gd["gy2"]
-        collegename2 = gd["collegename2"]
-        uni2 = gd["uni2"]
-        gmm2 = gd["gmm2"]
-        gmo2 = gd["gmo2"]
-        cgpa2 = gd["cgpa2"]
-        gy3 = gd["gy3"]
-        collegename3 = gd["collegename3"]
-        uni3 = gd["uni3"]
-        gmm3 = gd["gmm3"]
-        gmo3 = gd["gmo3"]
-        cgpa3 = gd["cgpa3"]
-        gy4 = gd["gy1"]
-        collegename4 = gd["collegename4"]
-        uni4 = gd["uni4"]
-        gmm4 = gd["gmm4"]
-        gmo4 = gd["gmo4"]
-        cgpa4 = gd["cgpa4"]
         org_name1 = gd["org_name1"]
         des1 = gd["des1"]
         peroid1 = gd["period1"]
@@ -98,32 +79,48 @@ def input_form(request):
         institute2 = gd["institute2"]
         level2 = gd["level2"]
         remark2 = gd["remark2"]
-        father_education = gd["father_education"]
-        father_occupation = gd["father_occupation"]
-        father_income = gd["father_income"]
-        mother_education = gd["mother_education"]
-        mother_occupation = gd["mother_occupation"]
-        mother_income = gd["mother_income"]
-        why_study = gd=["why_study"]
+        how_ans = gd["how_ans"]
+        photo = rf["photo"]
        
         data = data_form(first_name=first_name, last_name=last_name, father_name=father_name, mother_name=mother_name,
         contact=number, email=email, father_contact=father_no, mother_contact=mother_no, address=address, city=city, pin=pin_code,
         state=state, country=country, present_address=present_address, present_city=present_city, ppin=p_pin, pstate=present_state,
         pcountry=present_country, dob=birthdate, pob=place, gender=gender, category=category, aadhar=aadhar, blood_group=blood_group,
-        maratial_status=status, course=course, program=program, secondary_year=year1, nos1=nos1, board1=board1, max_marks1=mm1,
+        maratial_status=status, program=program, secondary_year=year1, nos1=nos1, board1=board1, max_marks1=mm1,
         marks1=mo1, percent1=p1, sr_secondary_year=year2, nos2=nos2, board2=board2, max_marks2=mm2, marks2=mo2, percent2=p2,
         name_of_degree=name_of_degree, graduation_year1=gy1, college1=collegename1, uni1=uni1, mmarks1=gmm1, mo1=gmo1, cgpa1=cgpa1,
-        graduation_year2=gy2, college2=collegename2, uni2=uni2, mmarks2=gmm2, mo2=gmo2, cgpa2=cgpa2, 
-        graduation_year3=gy3, college3=collegename3, uni3=uni3, mmarks3=gmm3, mo3=gmo3, cgpa3=cgpa3,
-        graduation_year4=gy4, college4=collegename4, uni4=uni4, mmarks4=gmm4, mo4=gmo4, cgpa4=cgpa4,
         org_name1=org_name1, des1=des1, peroid1=peroid1, nature_work1=nature_work1, salary1=salary1, 
         org_name2=org_name2, des2=des2, period2=peroid2, nature_work2=nature_work2, salary2=salary2,
         total_exp=total_exp, year1=year1, award_name1=award_name1, institute1=institute1, level1=level1, remark1=remark1,
-        year2=year2, award_name2=award_name2, institute2=institute2, level2=level2, remark2=remark2, why_study= why_study,
-        fater_education=father_education, mother_education=mother_education, father_occupation=father_occupation, mother_occupation=mother_occupation,
-        father_income=father_income, mother_income=mother_income)
+        year2=year2, award_name2=award_name2, institute2=institute2, level2=level2, remark2=remark2, how=how_ans, photograph=photo)
         data.save()
         return HttpResponseRedirect(reverse('pdf_form'))
+
+
+def export_users_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="student_data.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['First name', 'Last name', 'Fathers Name', 'Mothers Name', 'Contact Number', 'Email', 'Father Contact', 'Mother Contact',
+    'Permanent Address', 'City','Pin Code', 'State', 'Country', 'Present Address', 'Present City', 'Pin Code', 'Present State',
+    'Present Country', 'Date of Birth', 'Place of Birth', 'Gender', 'Category', 'Aadhar Number', 'Blood Group', 'Maratial Status',
+    'Program', '10th Year', '10th School Name', '10th Board', '10th Maximum Marks', '10th Marks Obtained', '10th Percentage',
+    '12th Year', '12th School Name', '12th Board', '12th Maximum Marks', '12th Marks Obtained', '12th Percentage',
+    'Graduation Year', 'Graduation School Name', 'Graduation University', 'Graduation Maximum Marks', 'Graduation Marks Obtained', 'Graduation Percentage',
+    'Name of Degree', 'Organisation Name 1', 'Designation 1', 'Period 1', 'Nature of Work 1', 'Last salary draw 1',
+    'Organisation Name 2', 'Designation 2', 'Period 2', 'Nature of Work 2', 'Last salary draw 2', 'Total experience', 
+    'Awarding year 1', 'Name of Award 1', 'Institution 1', 'Award Level 1', 'Award Remarks 1', 'Awarding year 2', 'Name of Award 2', 'Institution 2', 'Award Level 2', 'Award Remarks 2',
+    'How do you come to know about us?', 'Photograph'])
+
+    users = data_form.objects.all().values_list('first_name', 'last_name','father_name', 'mother_name', 'contact', 'email', 'father_contact', 'mother_contact', 'address',
+    'city', 'pin', 'state', 'country', 'present_address', 'present_city', 'ppin', 'pstate', 'pcountry', 'dob', 'pob','gender', 'category', 'aadhar', 'blood_group',
+    'maratial_status', 'program', 'secondary_year', 'nos1', 'board1', 'max_marks1', 'marks1', 'percent1', 'sr_secondary_year', 'nos2', 'board2', 'max_marks2', 'marks2', 'percent2',
+    'graduation_year1', 'college1', 'uni1', 'mmarks1', 'mo1', 'cgpa1', 'name_of_degree',)
+    for user in users:
+        writer.writerow(user)
+
+    return response
 
 """
 def input_form(request):

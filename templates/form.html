@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
+<div>
+    <div class="uk-background-muted uk-padding uk-panel">
 <div class="uk-card uk-card-default uk-card-body uk-width-3-4 uk-align-center">
     <div class="uk-card uk-card-body uk-align-center" >
         <img data-src="{% static 'images/online.png' %}" width="700px" height="500px" alt="" uk-img class="uk-align-center">
@@ -128,7 +129,7 @@
         <div class="uk-margin">
             <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Date of Birth</label>
             <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Date of Birth" name="dob">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="DD/MM/YYYY" name="dob">
             </div>
         </div>
         
@@ -180,25 +181,10 @@
         <div class="uk-margin">
             <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Maratial Status</label>
             <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Married, Un-married" name="radio2">
+                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Married/ Un-married" name="radio2">
             </div>
         </div>
-        <h4 class="uk-card-title mini-title" style="color:#6f1952"><b>Course Applied For</b></h4>
-        <div class="uk-margin">
-            <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Degree</label>
-            <div class="uk-form-controls">
-                <select class="uk-select" id="form-horizontal-select" name="degree">
-                    <option value="BSC">BSC</option>
-                    <option value="BCA">BCA</option>
-                    <option value="MSC">MSC</option>
-                    <option value="MCA">MCA</option>
-                    <option value="B.Tech">B.Tech</option>
-                    <option value="M.Tech">M.Tech</option>
-                    <option value="PHD">PHD</option>
-                    <option value="PGP">PGP</option>
-                </select>
-            </div>
-        </div>
+        <h4 class="uk-card-title mini-title" style="color:#6f1952"><b>Program Applied For</b></h4>
         <div class="uk-margin">
             <label class="uk-form-label mini-font" for="form-horizontal-text mini-font">Program</label>
             <div class="uk-form-controls">
@@ -279,33 +265,9 @@
                         <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="p2">
                     </td>
                 </tr>
-            </tbody>
-        </table>
-    </div>
-    <h4 class="uk-card-title mini-title" style="color:#6f1952"><b>Graduation</b></h4>
-    <div class="uk-margin">
-        <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Name of Degree</label>
-        <div class="uk-form-controls">
-            <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. B.Tech Mechatronics" name="name_of_degree">
-        </div>
-    </div>
-        <div class="uk-overflow-auto">
-        <table class="uk-table">
-            <thead>
-                <tr>
-                    <th style="color:#6f1952"><b>Examination</b></th>
-                    <th style="color:#6f1952"><b>Year</b></th>
-                    <th style="color:#6f1952"><b>Name of College</b></th>
-                    <th style="color:#6f1952"><b>University</b></th>
-                    <th style="color:#6f1952"><b>Maximum Marks</b></th>
-                    <th style="color:#6f1952"><b>Marks Obtained</b></th>
-                    <th style="color:#6f1952"><b>CGPA</b></th>
-                </tr>
-            </thead>
-            <tbody>
                 <tr>
                     <td>
-                        Year 1
+                        Graduation
                     </td>
                     <td>
                         <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. 2018" name="gy1">
@@ -326,79 +288,16 @@
                         <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="cgpa1">
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        Year 2
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. 2019" name="gy2">
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Name" name="collegename2">
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="University Name" name="uni2">
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="gmm2">
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="gmo2">
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="cgpa2">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Year 3
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. 2020" name="gy3">
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Name" name="collegename3">
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="University Name" name="uni3">
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="gmm3">
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="gmo3">
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="cgpa3">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Year 4
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. 2021" name="gy4">
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Name" name="collegename4">
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="University Name" name="uni4">
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="gmm4">
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="gmo4">
-                    </td>
-                    <td>
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="" name="cgpa4">
-                    </td>
-                </tr>
             </tbody>
         </table>
     </div>
-        <h4 class="uk-card-title mini-title" style="color:#6f1952"><b>Work Experience</b> (if any)</h4>
+    <div class="uk-margin">
+        <label class="uk-form-label mini-font" for="form-horizontal-text mini-font mini-font">Name of Degree</label>
+        <div class="uk-form-controls">
+            <input class="uk-input" id="form-horizontal-text" type="text" placeholder="eg. B.Tech Mechatronics" name="name_of_degree">
+        </div>
+    </div>
+        <h4 class="uk-card-title mini-title" style="color:#6f1952"><b>Work Experience</b> (last two)</h4>
         <div class="uk-overflow-auto">
         <table class="uk-table">
             <thead>
@@ -549,23 +448,18 @@
             </tbody>
         </table>
     </div>
-    <h5 class="uk-card-title mini-title" style="color:#6f1952"><b>Why would you choose to study at ADYPU? What are your future plans?</b></h5>
-        <div class="uk-margin">
-            
-            
-                <input class="uk-input" id="form-horizontal-text" type="text" required placeholder="Max. 50 words" name="why_study">
-         
+    
+    <h5 class="uk-card-title mini-title" style="color:#6f1952"><b>How do you come to know about us?</b></h5>
+    <div class="uk-margin">
+        <label class="uk-form-label mini-font" for="form-horizontal-text">Answer: </label>
+        <div class="uk-form-controls">
+            <input class="uk-input" id="form-horizontal-text" type="text" required placeholder="News Paper, Friends, Website, Other" name="how_ans">
         </div>
-        <h5 class="uk-card-title mini-title" style="color:#6f1952"><b>How do you come to know about us?</b></h5>
-        <div class="uk-margin">
-            
-                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="News Paper, Friends, Website, Other" name="how">
-           
-        </div>
+    </div>
         <h5 class="uk-card-title mini-title" style="color:#6f1952"><b>Upload your photo</b></h5>
         <div class="uk-margin">
             <div uk-form-custom>
-                <input type="file">
+                <input type="file" name="photo">
                 <button class="uk-button uk-button-default" type="button" tabindex="-1">Select</button>
             </div>
         </div>
@@ -578,7 +472,8 @@
             <input class="uk-checkbox" type="checkbox" required name="" value="Yes"> I accept </label><br><br>
         <input type="submit" class="uk-button uk-button-primary" value="Submit form"> <input class="uk-button" type="reset" value="Reset">
     </form>
-
+</div>
+</div>
 
 </div>
 {% endblock content %}

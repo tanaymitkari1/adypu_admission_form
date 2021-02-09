@@ -43,8 +43,7 @@ class data_form(models.Model):
     institute2 = models.CharField(null=True, blank=True, max_length=100)
     level2 = models.CharField(null=True, blank=True, max_length=100)
     remark2 = models.TextField(null=True, blank=True)
-    #why would you choose to study at adypu
-    why_study = models.CharField(null=True, blank=True, max_length=100)
+
     #how do you come to know abt us
     how = models.CharField(null=True, blank=True, max_length=100)
     #personal perticular
@@ -55,7 +54,6 @@ class data_form(models.Model):
     aadhar = models.IntegerField(null=True, blank= True)
     blood_group = models.CharField(null=True, blank=True, max_length=10)
     maratial_status = models.CharField(null=True, blank=True, max_length=20)
-    course = models.CharField(null=True, blank=True, max_length=100)
     program = models.CharField(null=True, blank=True, max_length=100)
     # acedamic qualification
     secondary_year = models.CharField(null=True, blank=True, max_length=100)
@@ -79,36 +77,7 @@ class data_form(models.Model):
     mmarks1 = models.CharField(null=True, blank=True, max_length=100)
     mo1 = models.CharField(null=True, blank=True, max_length=100)
     cgpa1 = models.CharField(null=True, blank=True, max_length=100)
-
-    graduation_year2 = models.CharField(null=True, blank=True, max_length=100)
-    college2 = models.CharField(null=True, blank=True, max_length=100)
-    uni2 = models.CharField(null=True, blank=True, max_length=100)
-    mmarks2 = models.CharField(null=True, blank=True, max_length=100)
-    mo2 = models.CharField(null=True, blank=True, max_length=100)
-    cgpa2 = models.CharField(null=True, blank=True, max_length=100)
-
-    graduation_year3 = models.CharField(null=True, blank=True, max_length=100)
-    college3 = models.CharField(null=True, blank=True, max_length=100)
-    uni3 = models.CharField(null=True, blank=True, max_length=100)
-    mmarks3 = models.CharField(null=True, blank=True, max_length=100)
-    mo3 = models.CharField(null=True, blank=True, max_length=100)
-    cgpa3 = models.CharField(null=True, blank=True, max_length=100)
-
-    graduation_year4 = models.CharField(null=True, blank=True, max_length=100)
-    college4 = models.CharField(null=True, blank=True, max_length=100)
-    uni4 = models.CharField(null=True, blank=True, max_length=100)
-    mmarks4 = models.CharField(null=True, blank=True, max_length=100)
-    mo4 = models.CharField(null=True, blank=True, max_length=100)
-    cgpa4 = models.CharField(null=True, blank=True, max_length=100)
     photograph = models.FileField(null=True, blank=True)
-
-    # Occupation of perticular
-    fater_education = models.CharField(null=True, blank=True, max_length=100)
-    mother_education = models.CharField(null=True, blank=True, max_length=100)
-    father_occupation = models.CharField(null=True, blank=True, max_length=100)
-    mother_occupation =models.CharField(null=True, blank=True, max_length=100)
-    father_income = models.CharField(null=True, blank=True, max_length=100)
-    mother_income = models.CharField(null=True, blank=True, max_length=100)
     
 
     def __str__(self):
