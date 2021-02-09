@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.views.generic import View
 from . models import data_form
+import csv
 from django.urls import reverse
 from .utils import render_to_pdf #created in step 4
 
@@ -116,7 +117,8 @@ def export_users_csv(request):
     users = data_form.objects.all().values_list('first_name', 'last_name','father_name', 'mother_name', 'contact', 'email', 'father_contact', 'mother_contact', 'address',
     'city', 'pin', 'state', 'country', 'present_address', 'present_city', 'ppin', 'pstate', 'pcountry', 'dob', 'pob','gender', 'category', 'aadhar', 'blood_group',
     'maratial_status', 'program', 'secondary_year', 'nos1', 'board1', 'max_marks1', 'marks1', 'percent1', 'sr_secondary_year', 'nos2', 'board2', 'max_marks2', 'marks2', 'percent2',
-    'graduation_year1', 'college1', 'uni1', 'mmarks1', 'mo1', 'cgpa1', 'name_of_degree',)
+    'graduation_year1', 'college1', 'uni1', 'mmarks1', 'mo1', 'cgpa1', 'name_of_degree','org_name1', 'des1', 'peroid1', 'nature_work1', 'salary1', 'org_name2', 'des2', 'period2', 
+    'nature_work2', 'salary2', 'total_exp', 'year1', 'award_name1', 'institute1', 'level1', 'remark1', 'year2', 'award_name2', 'institute2', 'level2', 'remark2', 'how', 'photograph')
     for user in users:
         writer.writerow(user)
 
