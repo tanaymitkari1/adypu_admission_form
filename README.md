@@ -1,2 +1,1 @@
-# ADYPU_form
-# application_form
+# adypu_admission_form
