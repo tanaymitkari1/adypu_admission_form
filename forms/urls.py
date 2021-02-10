@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import *
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', input_form, name="pdf_form"),
